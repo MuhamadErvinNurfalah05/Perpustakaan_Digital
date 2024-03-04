@@ -15,13 +15,27 @@
   <link rel="stylesheet" type="text/css" href="<?= urlTo('/public/adminlte/plugins/sweetalert2/sweetalert2.css'); ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= urlTo('/public/adminlte/css/adminlte.min.css'); ?>">
+  
+  <style>
+    body {
+      background-image: url('https://img.freepik.com/free-vector/cartoon-library-interior-with-bookshelf-background_107791-19699.jpg?t=st=1708913792~exp=1708917392~hmac=f5162125bb5f06f126506e1beb92d31d3546a05fc7db1be9cec26a8b18527dba&w=826');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="card">
+    <img src="https://img.freepik.com/premium-vector/flat-style-circle-template-book-education-vector_951778-34612.jpg?w=740" alt=""  height="80px" width="80px" style="display: block; margin-left: auto; margin-right: auto; margin-top: 12px; margin-bottom: auto;">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Selamat Datang Kembali</p>
-
+      <p class="login-box-msg" style="font-size: 20px;">Selamat Datang Kembali</p>
       <form action="<?= urlTo('/login/login'); ?>" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="Username">

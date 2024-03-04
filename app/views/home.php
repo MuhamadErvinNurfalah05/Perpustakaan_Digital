@@ -20,7 +20,7 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <p>Kategori Buku</p>
-                <h3><?= hitung('kategoribuku'); ?></h3>
+                <h3><?= hitung('buku_kategori'); ?></h3>
 
               </div>
               <div class="icon">
@@ -32,9 +32,9 @@
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
-              <div class="inner">
-                <p>Buku Yang Dipinjam</p>
-                <h3><?= hitung('peminjaman'); ?></h3>
+              <div class="inner" style="background-color: orange;">
+                <p style="color: white;">Buku Yang Dipinjam</p>
+                <h3 style="color: white;"><?= hitung('peminjaman'); ?></h3>
 
               </div>
               <div class="icon">

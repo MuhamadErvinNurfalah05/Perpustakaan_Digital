@@ -25,16 +25,16 @@ class UserController extends Controller
 
   public function store()
   {
-    if ($_POST['Password'] !== $_POST['Konfirmasi_Password']) {
+    if ($_POST['password'] !== $_POST['Konfirmasi_Password']) {
       redirectTo('error', 'Maaf, Konfirmasi password tidak cocok!', '/user/create');
     } else {
       if ($this->model('User')->create([
         'username'      => $_POST['username'],
         'email'         => $_POST['email'],
-        'nama_lengkap'   => $_POST['nama_lengkap'],
+        'nama_lengkap'  => $_POST['nama_lengkap'],
         'alamat'        => $_POST['alamat'],
         'password'      => password_hash($_POST['password'], PASSWORD_DEFAULT),
-        'level'          => 2
+        'level'         => 2
       ]) > 0) {
         redirectTo('success', 'Selamat, Data Petugas Berhasil di Tambahkan', '/user');
       } else {

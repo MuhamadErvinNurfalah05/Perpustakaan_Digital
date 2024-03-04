@@ -2,7 +2,7 @@
 class Peminjaman extends BaseModel
 {
   public $table_name    = "peminjaman";
-  public $table_id      = "PeminjamanID";
+  public $table_id      = "Peminjaman_id";
 
   public function getPinjam()
   {

@@ -8,7 +8,7 @@ class KBRelasi extends BaseModel
   {
     $query = "SELECT * FROM kategoribuku_relasi
     INNER JOIN buku ON kategoribuku_relasi.buku_id = buku.buku_id
-    INNER JOIN kategoribuku ON kategoribuku_relasi.kategori_id = kategoribuku.kategori_id
+    INNER JOIN buku_kategori ON kategoribuku_relasi.kategori_id = buku_kategori.kategori_id
     ORDER BY buku.buku_id DESC
     ";
     

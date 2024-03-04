@@ -25,7 +25,7 @@
                   class="btn btn-danger btn-block">
                     <b>Kembali</b>
                   </a>
-                  <a href="<?= urlTo('/perpustakaan/'.$data['buku']['buku_id'].'/ulasanbuku'); ?>" 
+                  <a href="<?= urlTo('/perpustakaan/'.$data['buku']['buku_id'].'/buku_ulasan'); ?>" 
                   class="btn btn-success btn-block">
                     <b>Berikan Ulasan</b>
                   </a>

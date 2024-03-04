@@ -27,6 +27,28 @@
         <a class="nav-link" data-widget="pushmenu" href="#" level="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
+      <style>small {
+                   font-family: 'Quicksand', 'sans-serif';
+                   font-weight: bold;
+                   font-size: medium;
+                   }
+      </style>
+      <small>
+            <script type='text/javascript'>
+              var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+              var myDays = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
+              var date = new Date();
+              var day = date.getDate();
+              var month = date.getMonth();
+              var thisDay = date.getDay(),
+                  thisDay = myDays[thisDay];
+              var yy = date.getYear();
+              var year = (yy < 1000) ? yy + 1900 : yy;
+              document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
+              //
+            </script>
+          </small>
+
   </nav>
   <!-- /.navbar -->
 
@@ -37,9 +59,9 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-
         <div class="info">
-          <a href="#" class="d-block"><?= $_SESSION['username']; ?></a>
+          <p style="color: white;"></p>
+          <a href="#" class="d-block">Login Sebagai:  <?= $_SESSION['username']; ?></a>
         </div>
       </div>
 
@@ -52,6 +74,7 @@
               <p>Home</p>
             </a>
           </li>
+
 
           <?php if ($_SESSION['level'] === 'Administrator' || $_SESSION['level'] === 'Petugas'): ?>
           <li class="nav-item <?= menuOpen(['user', 'kategoribuku', 'buku', 'peminjam']); ?>">

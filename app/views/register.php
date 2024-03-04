@@ -15,6 +15,19 @@
   <link rel="stylesheet" type="text/css" href="<?= urlTo('/public/adminlte/plugins/sweetalert2/sweetalert2.css'); ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= urlTo('/public/adminlte/css/adminlte.min.css'); ?>">
+  <style>
+    body {
+      background-image: url('https://img.freepik.com/free-vector/cartoon-library-interior-with-bookshelf-background_107791-19699.jpg?t=st=1708913792~exp=1708917392~hmac=f5162125bb5f06f126506e1beb92d31d3546a05fc7db1be9cec26a8b18527dba&w=826');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -33,19 +46,19 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email" required>
+          <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap" required>
+          <input type="email" class="form-control" name="email" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
@@ -60,10 +73,10 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="no_hp" placeholder="no_hp" required>
+          <input type="text" class="form-control" name="no_hp" placeholder="No Hp" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-home"></span>
+              <span class="fas fa-phone"></span>
             </div>
           </div>
         </div>

@@ -1,15 +1,15 @@
 <?php 
 class Ulasanbuku extends BaseModel
 {
-  public $table_name  = "ulasanbuku";
-  public $table_id    = "UlasanID";
+  public $table_name  = "buku_ulasan";
+  public $table_id    = "ulasan_id";
 
   public function getByBookID($id)
   {
     $result = $this->mysqli->query("
-      SELECT * FROM ulasanbuku
-      INNER JOIN users ON ulasanbuku.user_id = users.user_id
-      WHERE ulasanbuku.buku_id = '$id'
+      SELECT * FROM buku_ulasan
+      INNER JOIN users ON buku_ulasan.user_id = users.user_id
+      WHERE buku_ulasan.buku_id = '$id'
     ");
 
     $data = [];

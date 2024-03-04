@@ -14,7 +14,7 @@
         </div>
         
         <div class="form-group">
-          <label for="nama_lengkap">NamaLengkap</label>
+          <label for="nama_lengkap">Nama Lengkap</label>
           <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control" value="<?= $data['nama_lengkap']; ?>" required>
         </div>
         
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-          <label for="Alamat">No HP</label>
+          <label for="no_hp">No HP</label>
           <input type="text" id="no_hp" name="no_hp" class="form-control" value="<?= $data['no_hp']; ?>" required>
         </div>
 

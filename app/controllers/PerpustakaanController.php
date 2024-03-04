@@ -26,7 +26,7 @@ class PerpustakaanController extends Controller
     ]);
   }
 
-  public function ulasanbuku($id)
+  public function buku_ulasan($id)
   {
     $data = $this->model('Buku')->getById($id);
     $this->view('perpustakaan/ulasan', $data);
