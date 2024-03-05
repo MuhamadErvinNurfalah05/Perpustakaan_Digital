@@ -1,4 +1,5 @@
 <?php include '../app/views/templates/header.php'; $no = 1; ?>
+<h2>User</h2>
 <div class="container-fluid">
         <div class="row">
           <div class="col-12">

@@ -7,27 +7,33 @@ class LoginController extends Controller
   }
 
   public function login()
-	{
-		$Username = $_POST['username'];
-		$Password = $_POST['password'];
-		$data 	  = $this->model('User')->getByUsername($Username);
+{
+    $Username = $_POST['username'];
+    $Password = $_POST['password'];
+    $data     = $this->model('User')->getByUsername($Username);
 
-		// periksa ketersediaan username
-		if (!empty($data)) {
-			// Periksa kecocokan password
-			if (password_verify($Password, $data['password'])) {
-				$_SESSION['login']		= true;
-				$_SESSION['username']	= $data['username'];
-				$_SESSION['level']		  = $data['level'];
-				$_SESSION['user_id']	  = $data['user_id'];
-				redirectTo('success', 'Selamat datang kembali!', '/');
-			} else {
-				redirectTo('error', 'Maaf, Password salah!', '/login');
-			}
-		} else {
-			redirectTo('error', 'Maaf, Username tidak terdaftar!', '/login');
-		}
-	}
+    // periksa ketersediaan username
+    if (!empty($data)) {
+        // Periksa kecocokan password
+        if (password_verify($Password, $data['password'])) {
+            $_SESSION['login']      = true;
+            $_SESSION['username']   = $data['username'];
+            $_SESSION['level']      = $data['level'];
+            $_SESSION['user_id']    = $data['user_id'];
+            // Check the user's level and redirect accordingly
+            if ($data['level'] == 'Administrator' || $data['level'] == 'Petugas') {
+                redirectTo('success', 'Selamat datang kembali!', '/');
+            } else {
+                redirectTo('success', 'Selamat datang kembali!', '/home2');
+            }
+        } else {
+            redirectTo('error', 'Maaf, Password salah!', '/login');
+        }
+    } else {
+        redirectTo('error', 'Maaf, Username tidak terdaftar!', '/login');
+    }
+}
+
 
   public function register()
   {

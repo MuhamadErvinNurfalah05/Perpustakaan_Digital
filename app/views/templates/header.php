@@ -27,27 +27,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" level="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
-      <style>small {
-                   font-family: 'Quicksand', 'sans-serif';
-                   font-weight: bold;
-                   font-size: medium;
-                   }
-      </style>
-      <small>
-            <script type='text/javascript'>
-              var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-              var myDays = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
-              var date = new Date();
-              var day = date.getDate();
-              var month = date.getMonth();
-              var thisDay = date.getDay(),
-                  thisDay = myDays[thisDay];
-              var yy = date.getYear();
-              var year = (yy < 1000) ? yy + 1900 : yy;
-              document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
-              //
-            </script>
-          </small>
+      
 
   </nav>
   <!-- /.navbar -->
@@ -69,11 +49,19 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" level="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="<?= urlTo('/') ?>" class="nav-link <?= menuActive(['home']); ?>">
-              <i class="nav-icon fas fa-university"></i>
-              <p>Home</p>
-            </a>
-          </li>
+    <?php if ($_SESSION['level'] === 'Administrator' || $_SESSION['level'] === 'Petugas'): ?>
+        <a href="<?= urlTo('/') ?>" class="nav-link <?= menuActive(['home']); ?>">
+            <i class="nav-icon fas fa-university"></i>
+            <p>Home</p>
+        </a>
+    <?php else: ?>
+        <a href="<?= urlTo('/home2') ?>" class="nav-link <?= menuActive(['home']); ?>">
+            <i class="nav-icon fas fa-university"></i>
+            <p>Home</p>
+        </a>
+    <?php endif; ?>
+</li>
+
 
 
           <?php if ($_SESSION['level'] === 'Administrator' || $_SESSION['level'] === 'Petugas'): ?>
@@ -174,7 +162,6 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><?= getTitle(); ?></h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->

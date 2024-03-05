@@ -31,6 +31,11 @@
           <label for="tahun_terbit">Tahun Terbit</label>
           <input type="number" id="tahun_terbit" name="tahun_terbit" class="form-control" required>
         </div>
+
+        <div class="form-group">
+          <label for="sampul">Sampul Buku</label>
+          <input type="file" id="sampul" name="sampul" class="form-control" required>
+        </div>
       
         <div class="form-group">
           <a href="<?= urlTo('/buku'); ?>" class="btn btn-danger">Batal</a>
