@@ -14,7 +14,6 @@
                                 <th>Tanggal di Kembalikan</th>
                                 <th>Status</th>
                                 <th>Tindakan</th>
-                                <th>Baca</th> <!-- New column for the "Read" button -->
                             </tr>
                         </thead>
                         <tbody>
@@ -34,9 +33,6 @@
                                             </form>
                                         <?php endif ?>
                                     </td>
-                                    <td>
-                                        <a href="baca.php?buku_id=<?= $buku['buku_id']; ?>" class="btn btn-primary">Baca</a>
-                                    </td>
                                 </tr>
                                 <?php $no++; ?>
                             <?php endforeach ?>
@@ -49,7 +45,6 @@
                                 <th>Tanggal di Kembalikan</th>
                                 <th>Status</th>
                                 <th>Tindakan</th>
-                                <th>Baca</th> <!-- New column for the "Read" button -->
                             </tr>
                         </tfoot>
                     </table>

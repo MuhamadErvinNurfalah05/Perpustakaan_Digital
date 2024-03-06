@@ -9,7 +9,7 @@ class BukuController extends Controller
       * Selain Administrator dan Petugas akan langsung diarahkan kembali ke halaman home
     */
     if ($_SESSION['level'] !== 'Administrator' && $_SESSION['level'] !== 'Petugas') {
-      redirectTo('error', 'Mohon maaf, Anda tidak berhak mengakses halaman ini', '/');
+      redirectTo('error', 'Mohon maaf, Anda tidak berhak mengakses halaman ini', '/home2');
     }
   }
 

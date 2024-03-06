@@ -16,6 +16,7 @@
                     <th>Nama Lengkap</th>
                     <th>Email</th>
                     <th>Alamat</th>
+                    <th>No Hp</th>
                     <th>Level</th>
                     <th>Tindakan</th>
                   </tr>
@@ -27,6 +28,7 @@
                   		<td><?= $user['nama_lengkap']; ?></td>
                   		<td><?= $user['email']; ?></td>
                   		<td><?= $user['alamat']; ?></td>
+                      <td><?= $user['no_hp']; ?></td>
                   		<td><?= $user['level']; ?></td>
                   		<td>
                   			<?php if($user['level'] === 'Petugas'): ?>
@@ -51,6 +53,7 @@
                     <th>Nama Lengkap</th>
                     <th>Email</th>
                     <th>Alamat</th>
+                    <th>No Hp</th>
                     <th>Level</th>
                     <th>Tindakan</th>
                   </tr>

@@ -3,6 +3,7 @@
   <div class="card card-primary">
     <div class="card-body">
       <form action="<?= urlTo('/buku/'.$data['buku_id'].'/update'); ?>" method="post">
+
         <div class="form-group">
           <label for="judul">Judul</label>
           <input type="text" id="judul" name="judul" class="form-control"
@@ -25,12 +26,6 @@
           <label for="tahun_terbit">Tahun Terbit</label>
           <input type="number" id="tahun_terbit" name="tahun_terbit" class="form-control"
           value="<?= $data['tahun_terbit']; ?>" required>
-        </div>
-
-        <div class="form-group">
-          <label for="sampul">Sampul Buku</label>
-          <input type="file" id="sampul" name="sampul" class="form-control"
-          value="<?= $data['sampul']; ?>" required>
         </div>
       
         <div class="form-group">
