@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Mar 2024 pada 05.32
+-- Waktu pembuatan: 07 Mar 2024 pada 05.56
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -36,7 +36,6 @@ CREATE TABLE `buku` (
   `perpus_id` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `jumlah` varchar(100) NOT NULL,
   `stok` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -44,15 +43,15 @@ CREATE TABLE `buku` (
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`buku_id`, `judul`, `penulis`, `penerbit`, `tahun_terbit`, `perpus_id`, `kategori_id`, `created_at`, `jumlah`, `stok`) VALUES
-(2, 'Solo Leveling', 'Chugong', 'Clover', '2016', 0, 0, '2024-02-16 07:20:28', '', ''),
-(3, 'Dilan 1990', 'Pidi Baiq', 'Mizan Group', '2014', 0, 0, '2024-02-19 04:11:38', '', ''),
-(4, 'Naruto', 'Masashi Khisimoto', 'Toei', '1999', 0, 0, '2024-02-19 07:05:35', '', ''),
-(5, 'PKN', 'Baim', 'KBBI', '2013', 0, 0, '2024-02-19 07:06:38', '', ''),
-(6, 'Dr. Stone', 'Riichiro Inagaki', 'Shueisha', '2017', 0, 0, '2024-02-20 02:19:19', '', ''),
-(7, 'Matematika', 'Bung Haji', 'Mentari', '2013', 0, 0, '2024-03-07 03:29:23', '', '15'),
-(9, 'b.indo', 'bb', 'bb', '2005', 0, 0, '2024-03-07 03:26:47', '12', '20'),
-(12, 'Siksa Kubur', 'Agung', 'Jaya Agung', '2006', 0, 0, '2024-03-07 04:31:04', '', '25');
+INSERT INTO `buku` (`buku_id`, `judul`, `penulis`, `penerbit`, `tahun_terbit`, `perpus_id`, `kategori_id`, `created_at`, `stok`) VALUES
+(2, 'Solo Leveling', 'Chugong', 'Clover', '2016', 0, 0, '2024-02-16 07:20:28', ''),
+(3, 'Dilan 1990', 'Pidi Baiq', 'Mizan Group', '2014', 0, 0, '2024-02-19 04:11:38', ''),
+(4, 'Naruto', 'Masashi Khisimoto', 'Toei', '1999', 0, 0, '2024-02-19 07:05:35', ''),
+(5, 'PKN', 'Baim', 'KBBI', '2013', 0, 0, '2024-02-19 07:06:38', ''),
+(6, 'Dr. Stone', 'Riichiro Inagaki', 'Shueisha', '2017', 0, 0, '2024-02-20 02:19:19', ''),
+(7, 'Matematika', 'Bung Haji', 'Mentari', '2013', 0, 0, '2024-03-07 03:29:23', '15'),
+(9, 'b.indo', 'bb', 'bb', '2005', 0, 0, '2024-03-07 03:26:47', '20'),
+(12, 'Siksa Kubur', 'Agung', 'Jaya Agung', '2006', 0, 0, '2024-03-07 04:31:04', '25');
 
 -- --------------------------------------------------------
 
