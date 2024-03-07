@@ -10,6 +10,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Judul Buku</th>
+                                <th>Jumlah Yang di Pinjam</th>
                                 <th>Tanggal Peminjaman</th>
                                 <th>Tanggal di Kembalikan</th>
                                 <th>Status</th>
@@ -21,6 +22,7 @@
                                 <tr>
                                     <td><?= $no; ?></td>
                                     <td><?= $buku['judul']; ?></td>
+                                    <td><?= $buku['jumlah_pinjam']; ?></td>
                                     <td><?= $buku['tanggal_pinjam']; ?></td>
                                     <td><?= $buku['tanggal_kembali']; ?></td>
                                     <td><?= $buku['status_pinjam']; ?></td>
@@ -41,6 +43,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Judul Buku</th>
+                                <th>Jumlah Yang di Pinjam</th>
                                 <th>Tanggal Peminjaman</th>
                                 <th>Tanggal di Kembalikan</th>
                                 <th>Status</th>

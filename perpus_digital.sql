@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2024 at 08:52 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Waktu pembuatan: 07 Mar 2024 pada 05.32
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -36,46 +35,51 @@ CREATE TABLE `buku` (
   `tahun_terbit` varchar(255) NOT NULL,
   `perpus_id` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `jumlah` varchar(100) NOT NULL,
+  `stok` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`buku_id`, `judul`, `penulis`, `penerbit`, `tahun_terbit`, `perpus_id`, `kategori_id`, `created_at`) VALUES
-(2, 'Solo Leveling', 'Chugong', 'Clover', '2016', 0, 0, '2024-02-16 07:20:28'),
-(3, 'Dilan 1990', 'Pidi Baiq', 'Mizan Group', '2014', 0, 0, '2024-02-19 04:11:38'),
-(4, 'Naruto', 'Masashi Khisimoto', 'Toei', '1999', 0, 0, '2024-02-19 07:05:35'),
-(5, 'PKN', 'Baim', 'KBBI', '2013', 0, 0, '2024-02-19 07:06:38'),
-(6, 'Dr. Stone', 'Riichiro Inagaki', 'Shueisha', '2017', 0, 0, '2024-02-20 02:19:19'),
-(7, 'Matematika', 'Bung Haji', 'Mentari', '2013', 0, 0, '2024-03-04 07:50:29');
+INSERT INTO `buku` (`buku_id`, `judul`, `penulis`, `penerbit`, `tahun_terbit`, `perpus_id`, `kategori_id`, `created_at`, `jumlah`, `stok`) VALUES
+(2, 'Solo Leveling', 'Chugong', 'Clover', '2016', 0, 0, '2024-02-16 07:20:28', '', ''),
+(3, 'Dilan 1990', 'Pidi Baiq', 'Mizan Group', '2014', 0, 0, '2024-02-19 04:11:38', '', ''),
+(4, 'Naruto', 'Masashi Khisimoto', 'Toei', '1999', 0, 0, '2024-02-19 07:05:35', '', ''),
+(5, 'PKN', 'Baim', 'KBBI', '2013', 0, 0, '2024-02-19 07:06:38', '', ''),
+(6, 'Dr. Stone', 'Riichiro Inagaki', 'Shueisha', '2017', 0, 0, '2024-02-20 02:19:19', '', ''),
+(7, 'Matematika', 'Bung Haji', 'Mentari', '2013', 0, 0, '2024-03-07 03:29:23', '', '15'),
+(9, 'b.indo', 'bb', 'bb', '2005', 0, 0, '2024-03-07 03:26:47', '12', '20'),
+(12, 'Siksa Kubur', 'Agung', 'Jaya Agung', '2006', 0, 0, '2024-03-07 04:31:04', '', '25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku_kategori`
+-- Struktur dari tabel `buku_kategori`
 --
 
 CREATE TABLE `buku_kategori` (
   `kategori_id` int(11) NOT NULL,
   `nama_kategori` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `buku_kategori`
+-- Dumping data untuk tabel `buku_kategori`
 --
 
 INSERT INTO `buku_kategori` (`kategori_id`, `nama_kategori`, `created_at`) VALUES
 (1, 'Manga', '2024-02-16 04:28:16'),
 (2, 'Novel', '2024-02-19 04:10:51'),
-(3, 'Pendidikan', '2024-03-01 08:14:32');
+(3, 'Pendidikan', '2024-03-01 08:14:32'),
+(4, 'komik', '2024-03-06 08:34:16');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku_ulasan`
+-- Struktur dari tabel `buku_ulasan`
 --
 
 CREATE TABLE `buku_ulasan` (
@@ -84,32 +88,34 @@ CREATE TABLE `buku_ulasan` (
   `buku_id` int(11) NOT NULL,
   `ulasan` varchar(100) DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `buku_ulasan`
+-- Dumping data untuk tabel `buku_ulasan`
 --
 
 INSERT INTO `buku_ulasan` (`ulasan_id`, `user_id`, `buku_id`, `ulasan`, `rating`, `created_at`) VALUES
 (2, 9, 3, 'nice nice nice', 5, '2024-02-19 05:17:48'),
 (3, 9, 5, 'All in', 5, '2024-02-19 07:07:33'),
-(5, 8, 6, 'Berotak Senku', 5, '2024-02-20 04:22:40');
+(5, 8, 6, 'Berotak Senku', 5, '2024-02-20 04:22:40'),
+(6, 8, 7, 'wow', 5, '2024-03-06 06:59:57'),
+(7, 8, 9, 'wow', 5, '2024-03-06 08:41:30');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategoribuku_relasi`
+-- Struktur dari tabel `kategoribuku_relasi`
 --
 
 CREATE TABLE `kategoribuku_relasi` (
   `KategoriBukuID` int(11) NOT NULL,
   `buku_id` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `kategoribuku_relasi`
+-- Dumping data untuk tabel `kategoribuku_relasi`
 --
 
 INSERT INTO `kategoribuku_relasi` (`KategoriBukuID`, `buku_id`, `kategori_id`) VALUES
@@ -118,35 +124,37 @@ INSERT INTO `kategoribuku_relasi` (`KategoriBukuID`, `buku_id`, `kategori_id`) V
 (4, 4, 1),
 (5, 5, 3),
 (6, 6, 1),
-(7, 7, 3);
+(7, 7, 3),
+(8, 9, 3),
+(11, 12, 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `koleksi_pribadi`
+-- Struktur dari tabel `koleksi_pribadi`
 --
 
 CREATE TABLE `koleksi_pribadi` (
   `koleksi_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `buku_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `koleksi_pribadi`
+-- Dumping data untuk tabel `koleksi_pribadi`
 --
 
 INSERT INTO `koleksi_pribadi` (`koleksi_id`, `user_id`, `buku_id`, `created_at`) VALUES
-(2, 8, 2, '2024-02-16 07:22:25'),
 (4, 9, 2, '2024-02-19 04:12:54'),
 (5, 9, 3, '2024-02-19 05:17:07'),
-(7, 8, 3, '2024-03-01 05:59:14');
+(7, 8, 3, '2024-03-01 05:59:14'),
+(8, 8, 4, '2024-03-06 05:42:07');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peminjaman`
+-- Struktur dari tabel `peminjaman`
 --
 
 CREATE TABLE `peminjaman` (
@@ -156,42 +164,44 @@ CREATE TABLE `peminjaman` (
   `tanggal_pinjam` date DEFAULT NULL,
   `tanggal_kembali` date DEFAULT NULL,
   `status_pinjam` varchar(50) DEFAULT NULL,
-  `perpus_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `perpus_id` int(11) NOT NULL,
+  `jumlah_pinjam` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `peminjaman`
+-- Dumping data untuk tabel `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`peminjaman_id`, `user_id`, `buku_id`, `tanggal_pinjam`, `tanggal_kembali`, `status_pinjam`, `perpus_id`) VALUES
-(2, 8, 2, '2024-02-16', '2024-02-19', 'Sudah di Kembalikan', 0),
-(3, 9, 3, '2024-02-19', '2024-02-19', 'Sudah di Kembalikan', 0),
-(4, 9, 2, '2024-02-19', '2024-02-19', 'Sudah di Kembalikan', 0),
-(10, 9, 7, '2024-03-01', NULL, 'Belum di Kembalikan', 0),
-(12, 8, 6, '2024-03-01', '2024-03-01', 'Sudah di Kembalikan', 0),
-(13, 8, 5, '2024-03-01', '2024-03-01', 'Sudah di Kembalikan', 0),
-(14, 8, 3, '2024-03-01', '2024-03-04', 'Sudah di Kembalikan', 0),
-(15, 8, 5, '2024-03-04', '2024-03-04', 'Sudah di Kembalikan', 0),
-(16, 8, 7, '2024-03-04', '2024-03-04', 'Sudah di Kembalikan', 0),
-(17, 8, 4, '2024-03-04', NULL, 'Belum di Kembalikan', 0);
+INSERT INTO `peminjaman` (`peminjaman_id`, `user_id`, `buku_id`, `tanggal_pinjam`, `tanggal_kembali`, `status_pinjam`, `perpus_id`, `jumlah_pinjam`) VALUES
+(2, 8, 2, '2024-02-16', '2024-02-19', 'Sudah di Kembalikan', 0, ''),
+(3, 9, 3, '2024-02-19', '2024-02-19', 'Sudah di Kembalikan', 0, ''),
+(4, 9, 2, '2024-02-19', '2024-02-19', 'Sudah di Kembalikan', 0, ''),
+(10, 9, 7, '2024-03-01', '2024-03-07', 'Sudah di Kembalikan', 0, ''),
+(12, 8, 6, '2024-03-01', '2024-03-01', 'Sudah di Kembalikan', 0, ''),
+(13, 8, 5, '2024-03-01', '2024-03-01', 'Sudah di Kembalikan', 0, ''),
+(14, 8, 3, '2024-03-01', '2024-03-04', 'Sudah di Kembalikan', 0, ''),
+(15, 8, 5, '2024-03-04', '2024-03-04', 'Sudah di Kembalikan', 0, ''),
+(16, 8, 7, '2024-03-04', '2024-03-04', 'Sudah di Kembalikan', 0, ''),
+(17, 8, 4, '2024-03-04', '2024-03-06', 'Sudah di Kembalikan', 0, ''),
+(19, 8, 7, '2024-03-07', NULL, 'Belum di Kembalikan', 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peminjaman_detail`
+-- Struktur dari tabel `peminjaman_detail`
 --
 
 CREATE TABLE `peminjaman_detail` (
   `pinjam_detail_id` int(11) NOT NULL,
   `peminjaman_id` int(11) NOT NULL,
   `buku_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perpus`
+-- Struktur dari tabel `perpus`
 --
 
 CREATE TABLE `perpus` (
@@ -199,13 +209,13 @@ CREATE TABLE `perpus` (
   `nama_perpus` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `tlp_hp` varchar(50) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -218,11 +228,11 @@ CREATE TABLE `users` (
   `level` enum('Administrator','Petugas','Peminjam') DEFAULT NULL,
   `perpus_id` int(11) NOT NULL,
   `no_hp` varchar(50) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `nama_lengkap`, `alamat`, `level`, `perpus_id`, `no_hp`, `created_at`) VALUES
@@ -230,26 +240,26 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `nama_lengkap`,
 (7, 'petugas', '$2y$10$aly7.8FNBILiXJNXNklgZewOC121GRSZyZ9b51VyecQiuqaXMCPKi', 'petugas@gmail.com', 'Yanuar Irsan', 'Ciopat', 'Petugas', 0, '0835754345', '2024-02-20 02:13:28'),
 (8, 'Dian', '$2y$10$J0OLCprXX45hMJu2ZAdTieefsK4558RIpfpUmQ.mUeQnf6Pyu42xW', 'dian@gmail.com', 'Dian', 'Banjar', 'Peminjam', 0, '08963497126', '2024-02-16 07:01:14'),
 (9, 'Rian', '$2y$10$1QFMrit0cvQ91rdOHIrcUOrQDqLqd3L3c9U9sSyDg/fz7ydlr6Mq2', 'rian@gmail.com', 'Rian', 'Banjar', 'Peminjam', 0, '08963497126', '2024-02-19 04:12:18'),
-(12, 'bode', '$2y$10$VyPZVOO8G6QoDrjWnNPWZuVOtroSUNkkqlKYJ1BF9koyPlUDPNWoG', 'bode@gmail.com', 'Rendi Ramdhani', 'Banjar', 'Petugas', 0, '', '2024-02-20 02:14:25');
+(12, 'bode', '$2y$10$VyPZVOO8G6QoDrjWnNPWZuVOtroSUNkkqlKYJ1BF9koyPlUDPNWoG', 'bode@gmail.com', 'Rendi Ramdhani', 'Banjar', 'Petugas', 0, '08663637635', '2024-03-06 06:06:59');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`buku_id`);
 
 --
--- Indexes for table `buku_kategori`
+-- Indeks untuk tabel `buku_kategori`
 --
 ALTER TABLE `buku_kategori`
   ADD PRIMARY KEY (`kategori_id`);
 
 --
--- Indexes for table `buku_ulasan`
+-- Indeks untuk tabel `buku_ulasan`
 --
 ALTER TABLE `buku_ulasan`
   ADD PRIMARY KEY (`ulasan_id`),
@@ -257,7 +267,7 @@ ALTER TABLE `buku_ulasan`
   ADD KEY `BukuID` (`buku_id`);
 
 --
--- Indexes for table `kategoribuku_relasi`
+-- Indeks untuk tabel `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
   ADD PRIMARY KEY (`KategoriBukuID`),
@@ -265,7 +275,7 @@ ALTER TABLE `kategoribuku_relasi`
   ADD KEY `KategoriID` (`kategori_id`);
 
 --
--- Indexes for table `koleksi_pribadi`
+-- Indeks untuk tabel `koleksi_pribadi`
 --
 ALTER TABLE `koleksi_pribadi`
   ADD PRIMARY KEY (`koleksi_id`),
@@ -273,7 +283,7 @@ ALTER TABLE `koleksi_pribadi`
   ADD KEY `BukuID` (`buku_id`);
 
 --
--- Indexes for table `peminjaman`
+-- Indeks untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`peminjaman_id`),
@@ -281,109 +291,109 @@ ALTER TABLE `peminjaman`
   ADD KEY `BukuID` (`buku_id`);
 
 --
--- Indexes for table `peminjaman_detail`
+-- Indeks untuk tabel `peminjaman_detail`
 --
 ALTER TABLE `peminjaman_detail`
   ADD PRIMARY KEY (`pinjam_detail_id`);
 
 --
--- Indexes for table `perpus`
+-- Indeks untuk tabel `perpus`
 --
 ALTER TABLE `perpus`
   ADD PRIMARY KEY (`perpus_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
   ADD UNIQUE KEY `Username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `buku`
+-- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `buku_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `buku_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `buku_kategori`
+-- AUTO_INCREMENT untuk tabel `buku_kategori`
 --
 ALTER TABLE `buku_kategori`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `buku_ulasan`
+-- AUTO_INCREMENT untuk tabel `buku_ulasan`
 --
 ALTER TABLE `buku_ulasan`
-  MODIFY `ulasan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ulasan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `kategoribuku_relasi`
+-- AUTO_INCREMENT untuk tabel `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
-  MODIFY `KategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `KategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `koleksi_pribadi`
+-- AUTO_INCREMENT untuk tabel `koleksi_pribadi`
 --
 ALTER TABLE `koleksi_pribadi`
-  MODIFY `koleksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `koleksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `peminjaman`
+-- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `peminjaman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `peminjaman_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `peminjaman_detail`
+-- AUTO_INCREMENT untuk tabel `peminjaman_detail`
 --
 ALTER TABLE `peminjaman_detail`
   MODIFY `pinjam_detail_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `perpus`
+-- AUTO_INCREMENT untuk tabel `perpus`
 --
 ALTER TABLE `perpus`
   MODIFY `perpus_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `buku_ulasan`
+-- Ketidakleluasaan untuk tabel `buku_ulasan`
 --
 ALTER TABLE `buku_ulasan`
   ADD CONSTRAINT `buku_ulasan_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `buku_ulasan_ibfk_2` FOREIGN KEY (`buku_id`) REFERENCES `buku` (`buku_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `kategoribuku_relasi`
+-- Ketidakleluasaan untuk tabel `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
   ADD CONSTRAINT `kategoribuku_relasi_ibfk_1` FOREIGN KEY (`buku_id`) REFERENCES `buku` (`buku_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `kategoribuku_relasi_ibfk_2` FOREIGN KEY (`kategori_id`) REFERENCES `buku_kategori` (`kategori_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `koleksi_pribadi`
+-- Ketidakleluasaan untuk tabel `koleksi_pribadi`
 --
 ALTER TABLE `koleksi_pribadi`
   ADD CONSTRAINT `koleksi_pribadi_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `koleksi_pribadi_ibfk_2` FOREIGN KEY (`buku_id`) REFERENCES `buku` (`buku_id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `peminjaman`
+-- Ketidakleluasaan untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD CONSTRAINT `peminjaman_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,

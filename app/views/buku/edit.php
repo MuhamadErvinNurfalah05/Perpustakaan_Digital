@@ -27,6 +27,12 @@
           <input type="number" id="tahun_terbit" name="tahun_terbit" class="form-control"
           value="<?= $data['tahun_terbit']; ?>" required>
         </div>
+
+        <div class="form-group">
+          <label for="stok">Stok</label>
+          <input type="number" id="stok" name="stok" class="form-control"
+          value="<?= $data['stok']; ?>" required>
+        </div>
       
         <div class="form-group">
           <a href="<?= urlTo('/buku'); ?>" class="btn btn-danger">Batal</a>

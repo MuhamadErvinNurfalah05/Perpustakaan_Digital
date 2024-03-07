@@ -33,6 +33,11 @@
         </div>
 
         <div class="form-group">
+          <label for="stok">Stok</label>
+          <input type="number" id="stok" name="stok" class="form-control" required>
+        </div>
+
+        <div class="form-group">
           <a href="<?= urlTo('/buku'); ?>" class="btn btn-danger">Batal</a>
           <button type="submit" class="btn btn-primary float-right">Tambah Data</button>
         </div>

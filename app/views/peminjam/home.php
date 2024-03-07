@@ -15,6 +15,7 @@
                     <th>Nama Peminjam</th>
                     <th>Alamat Peminjam</th>
                     <th>Buku Yang di Pinjam</th>
+                    <th>Jumlah Yang di Pinjam</th>
                     <th>Tanggal di Dipinjam</th>
                     <th>Tanggal di Kembalikan</th>
                     <th>Status</th>
@@ -27,6 +28,7 @@
                       <td><?= $k['nama_lengkap']; ?></td>
                       <td><?= $k['alamat']; ?></td>
                       <td><?= $k['judul']; ?></td>
+                      <td><?= $k['jumlah_pinjam']; ?></td>
                       <td><?= $k['tanggal_pinjam']; ?></td>
                       <td><?= $k['tanggal_kembali']; ?></td>
                       <td><?= $k['status_pinjam']; ?></td>
@@ -40,6 +42,7 @@
                     <th>Nama Peminjam</th>
                     <th>Alamat Peminjam</th>
                     <th>Buku Yang di Pinjam</th>
+                    <th>Jumlah Yang di Pinjam</th>
                     <th>Tanggal di Dipinjam</th>
                     <th>Tanggal di Kembalikan</th>
                     <th>Status</th>

@@ -17,6 +17,7 @@
                     <th>Kategori</th>
                     <th>Judul</th>
                     <th>Penulis</th>
+                    <th>Stok</th>
                     <th>Ditambahkan pada</th>
                     <th>Tindakan</th>
                   </tr>
@@ -28,6 +29,7 @@
                   		<td><?= $buku['nama_kategori']; ?></td>
                   		<td><?= $buku['judul']; ?></td>
                   		<td><?= $buku['penulis']; ?></td>
+                      <td><?= $buku['stok']; ?></td>
                       <td><?= $buku['created_at']; ?></td>
                       <td>
                         <a 
@@ -61,6 +63,7 @@
                     <th>Kategori</th>
                     <th>Judul</th>
                     <th>Penulis</th>
+                    <th>Stok</th>
                     <th>Ditambahkan pada</th>
                     <th>Tindakan</th>
                   </tr>
